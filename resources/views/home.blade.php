@@ -18,9 +18,9 @@
     <button class="icon-btn" id="darkModeToggle" title="الوضع الليلي">
       <i class="fas fa-moon"></i>
     </button>
-    <button class="icon-btn" title="المفضلة">
+    <button class="icon-btn" id="favoritesBtn" title="المفضلة">
       <i class="fas fa-heart"></i>
-      <span class="badge-count">0</span>
+      <span class="badge-count" id="favoritesCount">0</span>
     </button>
     <button class="icon-btn cart-btn" title="عربة التسوق" id="cartBtn">
       <i class="fas fa-shopping-cart"></i>
@@ -75,8 +75,17 @@
 
   <div id="products-grid" class="products-grid" role="list" aria-live="polite" data-server-rendered="1">
     @forelse(($products ?? []) as $product)
-      <div class="product-card" data-server-item="1">
+      <div class="product-card" data-server-item="1" data-product-id="{{ $product->id }}">
         <div class="product-image">
+          <button class="favorite-btn"
+                  data-product-id="{{ $product->id }}"
+                  data-product-name="{{ $product->name }}"
+                  data-product-price="{{ $product->price }}"
+                  data-product-img="{{ $product->image ? asset('storage/'.$product->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}"
+                  data-product-desc="{{ $product->description }}"
+                  title="إضافة إلى المفضلة">
+            <i class="far fa-heart"></i>
+          </button>
           <img src="{{ $product->image ? asset('storage/'.$product->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}" alt="{{ $product->name }}" loading="lazy"/>
         </div>
         <div class="product-info">
@@ -136,9 +145,18 @@
   <div class="products-grid" role="list" aria-live="polite" data-server-rendered="1">
     @php($flash = ($products ?? collect())->where('is_flash_sale', true)->take(2))
     @forelse($flash as $product)
-      <div class="product-card flash-sale" data-server-item="1">
+      <div class="product-card flash-sale" data-server-item="1" data-product-id="{{ $product->id }}">
         <span class="badge">خصم</span>
         <div class="product-image">
+          <button class="favorite-btn"
+                  data-product-id="{{ $product->id }}"
+                  data-product-name="{{ $product->name }}"
+                  data-product-price="{{ $product->price }}"
+                  data-product-img="{{ $product->image ? asset('storage/'.$product->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}"
+                  data-product-desc="{{ $product->description }}"
+                  title="إضافة إلى المفضلة">
+            <i class="far fa-heart"></i>
+          </button>
           <img src="{{ $product->image ? asset('storage/'.$product->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}" alt="{{ $product->name }}" loading="lazy">
         </div>
         <div class="product-info">
@@ -166,8 +184,17 @@
   <h2 id="best-sellers-title" data-aos="fade-right" data-aos-duration="800">المنتجات الأفضل مبيعًا</h2>
   <div class="products-grid" id="best-sellers" role="list" aria-live="polite" data-server-rendered="1">
     @forelse(($bestSellers ?? []) as $product)
-      <div class="product-card" data-server-item="1">
+      <div class="product-card" data-server-item="1" data-product-id="{{ $product->id }}">
         <div class="product-image">
+          <button class="favorite-btn"
+                  data-product-id="{{ $product->id }}"
+                  data-product-name="{{ $product->name }}"
+                  data-product-price="{{ $product->price }}"
+                  data-product-img="{{ $product->image ? asset('storage/'.$product->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}"
+                  data-product-desc="{{ $product->description }}"
+                  title="إضافة إلى المفضلة">
+            <i class="far fa-heart"></i>
+          </button>
           <img src="{{ $product->image ? asset('storage/'.$product->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}" alt="{{ $product->name }}" loading="lazy">
         </div>
         <div class="product-info">

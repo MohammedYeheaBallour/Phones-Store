@@ -1,0 +1,436 @@
+/* تحسينات CSS للموقع */
+
+/* 1. تحسين بطاقات المنتجات - أحجام موحدة */
+.product-card {
+  height: 100%;
+  min-height: 440px !important;
+  border: 1px solid rgba(0,0,0,0.04) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+}
+
+.product-card .product-image {
+  height: 260px !important;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px !important;
+}
+
+.product-card .product-image img {
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.product-card .product-info h4,
+.product-card .product-info h3 {
+  min-height: 2.8rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Improve typography clarity inside product cards */
+.product-card {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.product-card .product-info h4 {
+  color: var(--text-color) !important;
+  font-size: 1.18rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.25px !important;
+  line-height: 1.2 !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.product-card .product-info p {
+  color: rgba(15,23,42,0.88) !important; /* stronger contrast for descriptions */
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  margin-top: 0.35rem !important;
+  opacity: 0.98 !important;
+}
+
+.product-card .product-image img {
+  /* ensure images look crisp and don't blur text contrast */
+  image-rendering: optimizeQuality !important;
+}
+
+/* Improve card background and border to lift text contrast */
+.product-card {
+  background: var(--white) !important;
+  border: 1px solid rgba(15,23,42,0.06) !important;
+}
+
+.product-card .product-image {
+  background: var(--gray-100) !important;
+}
+
+.product-card .product-info p {
+  min-height: 2.6rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card .price {
+  font-size: 1.1rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.product-card .btn-cta {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* 2. تحسين نموذج التقييم */
+.review-form {
+  max-width: 700px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.review-form h3 {
+  font-size: 1.5rem !important;
+  justify-content: center !important;
+  text-align: center;
+}
+
+/* 3. تحسين Footer */
+footer {
+  padding: 3rem 2rem 2rem !important;
+  font-size: 0.95rem !important;
+}
+
+footer .footer-container {
+  gap: 3rem !important;
+}
+
+footer .footer-group {
+  flex: 1 1 250px !important;
+  min-width: 220px !important;
+}
+
+footer .footer-group h4 {
+  font-size: 1.3rem !important;
+  margin-bottom: 1.2rem !important;
+  border-bottom: 3px solid var(--primary-light) !important;
+  padding-bottom: 0.7rem !important;
+  gap: 0.7rem !important;
+  font-weight: 700 !important;
+}
+
+footer .footer-group h4 i {
+  font-size: 1.3rem !important;
+}
+
+footer .footer-group ul li {
+  margin-bottom: 0.8rem !important;
+}
+
+footer .footer-group ul li a {
+  color: #cbd5e1 !important;
+  gap: 0.7rem !important;
+  font-size: 1rem !important;
+  padding: 0.3rem 0 !important;
+  transition: all 0.3s !important;
+}
+
+footer .footer-group ul li a:hover {
+  transform: translateX(-5px) !important;
+}
+
+footer .footer-group ul li a i {
+  font-size: 0.9rem !important;
+  color: var(--primary-light) !important;
+}
+
+/* 4. تحسين الأزرار */
+.btn-cta {
+  padding: 0.9rem 1.5rem !important;
+  font-size: 1rem !important;
+  white-space: nowrap !important;
+  min-width: fit-content !important;
+}
+
+.newsletter-input-group button {
+  padding: 0.9rem 1.5rem !important;
+  white-space: nowrap !important;
+}
+
+/* 5. تحسين Newsletter */
+.newsletter {
+  flex: 1 1 100% !important;
+  max-width: 600px !important;
+  margin: 2rem auto 0 !important;
+}
+
+.newsletter h4 {
+  font-size: 1.3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.newsletter p {
+  font-size: 1rem !important;
+  color: #cbd5e1 !important;
+}
+
+.newsletter-input-group {
+  display: flex !important;
+  gap: 0.5rem !important;
+  margin-top: 1rem !important;
+}
+
+.newsletter-input-group input {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+/* 6. تحسين Footer Bottom */
+footer .footer-bottom {
+  margin-top: 3rem !important;
+  padding-top: 2rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  text-align: center !important;
+  font-size: 0.95rem !important;
+  color: #cbd5e1 !important;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .product-card {
+    min-height: 420px !important;
+  }
+
+  .product-card .product-image {
+    height: 200px !important;
+  }
+
+  footer .footer-group {
+    flex: 1 1 100% !important;
+  }
+
+  .newsletter-input-group {
+    flex-direction: column !important;
+  }
+
+  .newsletter-input-group button {
+    width: 100% !important;
+  }
+}
+
+/* 7. تحسين عرض قسم "ماذا يقول عملاؤنا" ليكون مريحاً للعين */
+.container.reviews {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--spacing-md) !important;
+  padding-right: var(--spacing-md) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.reviews {
+  margin: 2.5rem auto !important;
+  padding: var(--spacing-lg) var(--spacing-md) !important;
+}
+
+.review-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: var(--spacing-lg) !important;
+}
+
+.review-card {
+  background: #f9fafb !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: var(--spacing-md) !important;
+}
+
+.review-card .comment {
+  font-size: 0.95rem !important;
+}
+
+@media (min-width: 1025px) {
+  .reviews.container {
+    border-radius: var(--radius-lg) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .review-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .review-cards {
+    grid-template-columns: 1fr !important;
+  }
+  .reviews {
+    padding: var(--spacing-md) !important;
+  }
+}
+
+/* 8. تحسين حقول النشرة البريدية في الفوتر (إظهار واضح بدون قص) */
+.newsletter form {
+  overflow: visible !important;
+}
+
+.newsletter-input-group {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+}
+
+/* 9. تحسين شريط البحث وشكل الترويسة */
+nav {
+  backdrop-filter: saturate(120%) blur(4px);
+  height: 64px !important;
+}
+
+nav .logo {
+  font-size: 1.2rem !important;
+}
+
+nav .icons {
+  gap: 1.25rem !important;
+}
+
+nav .icons .icon-btn {
+  padding: 0.35rem 0.45rem !important;
+  font-size: 1.05rem !important;
+  border-radius: 10px !important;
+}
+
+/* وسط شريط البحث بعرض مريح */
+nav .search-bar {
+  flex: 0 1 720px !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+}
+
+nav input[type="search"] {
+  height: 40px !important;
+  padding: 0 2.6rem 0 1rem !important;
+  font-size: 0.95rem !important;
+  border: 1px solid var(--gray-200) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+}
+
+nav input[type="search"]::placeholder {
+  color: var(--text-light) !important;
+  opacity: 0.9 !important;
+}
+
+nav input[type="search"]:focus {
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.15) !important;
+}
+
+nav .search-icon {
+  right: 0.9rem !important;
+  font-size: 1rem !important;
+  color: var(--gray-400) !important;
+}
+
+@media (max-width: 1024px) {
+  nav .search-bar {
+    flex: 1 1 auto !important;
+    max-width: 520px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    height: 56px !important;
+  }
+  nav .search-bar {
+    max-width: 100% !important;
+    margin: 0 var(--spacing-sm) !important;
+  }
+  nav input[type="search"] {
+    height: 44px !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  nav {
+    padding: 0 var(--spacing-2xl) !important;
+  }
+}
+
+/* 10. شبكة منتجات سائلة ومريحة لجميع الأجهزة */
+.products-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+@media (min-width: 1400px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  }
+}
+
+/* 11. تحسينات للنمط الليلي لبطاقات المنتجات */
+[data-theme="dark"] .product-card {
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35) !important;
+}
+
+/* 12. دعم تفضيل تقليل الحركة للمستخدم */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .banner:hover,
+  .feature-card:hover,
+  .product-card:hover,
+  .favorite-btn.active:hover,
+  .flash-sale:hover {
+    transform: none !important;
+  }
+}
+
+.newsletter-input-group input {
+  flex: 1 1 auto !important;
+  height: 48px !important;
+  padding: 0 1rem !important;
+  border-radius: var(--radius-full) !important;
+  border: 1px solid var(--gray-300) !important;
+  border-right: 1px solid var(--gray-300) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important;
+}
+
+.newsletter-input-group button {
+  height: 48px !important;
+  padding: 0 1.2rem !important;
+  border-radius: var(--radius-full) !important;
+  min-width: 140px !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+  .newsletter-input-group {
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+  }
+  .newsletter-input-group button {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}

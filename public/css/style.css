@@ -2,15 +2,16 @@
 
   :root {
 
-    --primary-color: #2f855a;
-    --primary-dark: #273b67;
-    --primary-light: #38a169;
-    --secondary-color: #ecfdf5;
-    --accent-color: #0f766e;
-    --text-color: #1f2937;
-    --text-light: #4b5563;
-    --text-muted: #6b7280;
-    --background-color: #f8fafc;
+  /* Updated cohesive color palette (emerald / teal) */
+  --primary-color: #065f46; /* emerald-800 */
+  --primary-dark: #054f3b; /* darker emerald */
+  --primary-light: #10b981; /* emerald-500 */
+  --secondary-color: #f0fdf4; /* soft green background */
+  --accent-color: #0891b2; /* cyan-teal accent */
+  --text-color: #0f172a; /* deep slate for better contrast */
+  --text-light: #374151; /* slate-600 */
+  --text-muted: #6b7280; /* neutral muted */
+  --background-color: #fbfdfa; /* near-white warm background */
     --white: #ffffff;
     --black: #000000;
     --gray-100: #f5f5f5;
@@ -80,14 +81,28 @@
 
 
   [data-theme="dark"] {
-    --background-color: var(--dark-bg);
-    --text-color: #e9eef5;
-    --text-light: #c8d1dc;
-    --white: #0f172a;
-    --primary-color: #22c55e;
-    --primary-light: #34d399;
-    --primary-dark: #16a34a;
-    --accent-color: #0891b2;
+    /* Softer dark theme: slightly lighter background and muted accents to reduce eye strain */
+    --background-color: #0f1720; /* slightly lighter than pure black */
+    --dark-surface: #0b1620;
+    --text-color: #d8e8e3; /* soft off-white */
+    --text-light: #9fb3ad; /* muted secondary text */
+    --white: #ffffff;
+    --primary-color: #0f766e; /* muted teal */
+    --primary-light: #16a34a; /* gentle green for highlights */
+    --primary-dark: #0b5e52;
+    --accent-color: #0ea5b7; /* softer cyan-teal */
+    /* reduce heavy shadows in dark mode */
+    --shadow-md: 0 3px 8px -1px rgba(0,0,0,0.18), 0 1px 3px -2px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 16px -3px rgba(0,0,0,0.22), 0 4px 6px -4px rgba(0,0,0,0.18);
+  }
+
+  /* Ensure product card text is readable in dark mode */
+  [data-theme="dark"] .product-card .product-info h4 {
+    color: var(--text-color) !important;
+  }
+
+  [data-theme="dark"] .product-card .product-info p {
+    color: var(--text-light) !important;
   }
 
 
@@ -214,14 +229,14 @@
     box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 8px 24px rgba(0,0,0,0.32);
   }
   [data-theme="dark"] .product-card .price {
-    color: #86efac;
+    color: var(--primary-light);
   }
   [data-theme="dark"] .flash-sale {
     background: linear-gradient(90deg, rgba(8,145,178,0.20), rgba(34,197,94,0.12));
   }
   [data-theme="dark"] .toast {
-    background: #0b1220;
-    border-left-color: #22c55e;
+    background: var(--dark-surface);
+    border-left-color: var(--primary-color);
     color: var(--text-color);
   }
 
@@ -407,6 +422,20 @@
     color: var(--text-light);
     margin: 0.3rem 0 0.7rem;
   }
+
+  /* Stronger, more legible text for product cards (light + dark themes) */
+  .product-card .product-info h4 {
+    color: var(--text-color) !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.2px;
+  }
+
+  .product-card .product-info p {
+    color: var(--text-muted) !important;
+    line-height: 1.35;
+    -webkit-font-smoothing: antialiased;
+  }
   .product-card .price {
     font-weight: 800;
     color: var(--primary-dark);
@@ -451,13 +480,52 @@
   }
 
   .favorite-btn i {
-    color: var(--primary-color);
+    color: #94a3b8;
     font-size: 1rem;
-    transition: color var(--transition-normal);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .favorite-btn:hover i {
-    color: #ef4444;
+    color: #f43f5e;
+    transform: scale(1.2);
+  }
+
+  /* Active state - When product is in favorites */
+  .favorite-btn.active {
+    background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+    animation: heartBeat 0.5s ease;
+  }
+
+  .favorite-btn.active i {
+    color: var(--white);
+  }
+
+  .favorite-btn.active:hover {
+    background: linear-gradient(135deg, #e11d48 0%, #db2777 100%);
+    box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
+    transform: scale(1.15);
+  }
+
+  .favorite-btn.active:hover i {
+    color: var(--white);
+    transform: scale(1.1);
+  }
+
+  /* Heart beat animation */
+  @keyframes heartBeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    10%, 30% {
+      transform: scale(0.9);
+    }
+    20%, 40%, 60%, 80% {
+      transform: scale(1.1);
+    }
+    50%, 70% {
+      transform: scale(1.05);
+    }
   }
 
 

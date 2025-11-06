@@ -49,12 +49,18 @@ class CartController extends Controller
     {
         $quantity = max(1, (int) $request->input('quantity', 1));
         $cartItem->update(['quantity' => $quantity]);
+        if ($request->wantsJson()) {
+            return response()->json(['ok' => true, 'item' => $cartItem->load('product')]);
+        }
         return back()->with('success', 'تم تحديث الكمية');
     }
 
     public function remove(CartItem $cartItem)
     {
         $cartItem->delete();
+        if (request()->wantsJson()) {
+            return response()->json(['ok' => true]);
+        }
         return back()->with('success', 'تم حذف العنصر من السلة');
     }
 
