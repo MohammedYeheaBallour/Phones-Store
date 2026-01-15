@@ -55,7 +55,7 @@
     </tbody>
   </table>
 
-  <div style="margin-top:1rem bg-black p-4 rounded text-center ">
+  <div style="margin-top:1rem">
     {{ $products->links() }}
   </div>
 </div>
